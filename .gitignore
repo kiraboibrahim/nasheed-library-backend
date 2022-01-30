@@ -1,0 +1,6 @@
+anasheed_backend/wsgi.py
+anasheed_backend/settings.py
+track/migrations/*
+artist/migrations/*
+manage.py
+*.pyc
