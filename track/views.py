@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from django.db.models import F
+import os
+from django.shortcuts import get_object_or_404
+from django.db.models import Q
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from anasheed_backend.utils import paginated_results
+from anasheed_backend.utils import paginated_results, stream_file
 from .serializers import TrackSerializer, TrackViewSerializer
 from .models import Track, TrackView, PopularTrackView
 from artist.models import Artist
-from django.http import JsonResponse
+from anasheed_backend.settings import TRACKS_PATH
 
 # Create your views here.
 
@@ -102,6 +103,12 @@ def register_download(request, pk):
 
 
 @api_view(['GET'])
-def stream_track(request, pk):
-    # This will require byte serving
-    pass
+def stream_track(request, pk, ref):
+    # Get the filename attached to the track
+    criteria = Q(stream_reference=ref, id=pk)
+    try:
+        track = TrackView.objects.filter(criteria)[0]
+        file_path = os.path.join(TRACKS_PATH, track.filename)
+        return stream_file(request, file_path)
+    except IndexError:
+        return Response(status=status.HTTP_404_NOT_FOUND)

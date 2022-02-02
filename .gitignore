@@ -6,3 +6,4 @@ manage.py
 *.pyc
 static/*
 staticfiles/*
+tracks/*
