@@ -4,3 +4,5 @@ track/migrations/*
 artist/migrations/*
 manage.py
 *.pyc
+static/*
+staticfiles/*
