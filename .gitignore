@@ -1,9 +1,8 @@
-anasheed_backend/wsgi.py
-anasheed_backend/settings.py
-track/migrations/*
-artist/migrations/*
-manage.py
+tracks/migrations/*
+artists/migrations/*
 *.pyc
 static/*
 staticfiles/*
-tracks/*
+media
+db.sqlite3
+.env
