@@ -1,8 +1,9 @@
-tracks/migrations/*
-artists/migrations/*
+migrations/*
+migrations/*
 *.pyc
 static/*
 staticfiles/*
 media
 db.sqlite3
 .env
+.idea
