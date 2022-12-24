@@ -4,6 +4,7 @@ from rest_framework_serializer_extensions.fields import HashIdField, HashIdHyper
 from rest_framework_serializer_extensions.serializers import SerializerExtensionsMixin
 
 from artists.models import Artist
+from artists.serializers import ArtistSerializer
 from artists.utils import internal_ids_from_model_and_external_ids
 
 from .models import Track
@@ -11,8 +12,7 @@ from .models import Track
 
 class TrackSerializer(SerializerExtensionsMixin, serializers.ModelSerializer):
     id = HashIdField(model=Track)
-    artist = HashIdHyperlinkedRelatedField("artist-detail", read_only=True, lookup_url_kwarg="artist_id", model=Artist)
-
+    artist = ArtistSerializer()
     class Meta:
         model = Track
         exclude = ["uploaded_at"]
