@@ -13,10 +13,11 @@ from .models import Track
 class TrackSerializer(SerializerExtensionsMixin, serializers.ModelSerializer):
     id = HashIdField(model=Track)
     artist = ArtistSerializer()
+
     class Meta:
         model = Track
         exclude = ["uploaded_at"]
-        read_only_fields = ["name", "artist", "file", "uploaded_at"]
+        read_only_fields = ["name", "artist", "file", "uploaded_at", "duration"]
 
 
 class TrackIdsSerializer(serializers.Serializer):

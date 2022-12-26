@@ -9,6 +9,7 @@ class Track(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.PROTECT, related_name='tracks')
     name = models.CharField(max_length=100, null=False, unique=True, db_index=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    duration = models.CharField(editable=False, null=True, max_length=8)
     file = models.FileField(upload_to="tracks/")
 
     def __str__(self):
