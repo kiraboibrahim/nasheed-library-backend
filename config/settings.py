@@ -134,7 +134,7 @@ HASHIDS_SALT = env.str("HASHIDS_SALT")
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-MEDIA_URL = "/media/"
+MEDIA_URL = env.str("MEDIA_URL", default="http://localhost:8000/media/")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
