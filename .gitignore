@@ -5,4 +5,5 @@ staticfiles/*
 media
 *.sqlite3
 .env
+.env.dist
 .idea

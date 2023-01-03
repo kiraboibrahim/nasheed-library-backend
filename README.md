@@ -12,6 +12,6 @@ This is the backend application, part of the [nasheed](https://en.wikipedia.org/
   
 ## Running the API
 
-`pip install requirements.txt`
+`pip install -r requirements.txt`
 
 `python manage.py runserver`

@@ -11,7 +11,7 @@ class ArtistSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
-        ret["image"] = instance.image.thumbnails.large.url
+        ret["image"] = instance.large_thumbnail_url
         return ret
 
     class Meta:
