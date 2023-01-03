@@ -107,7 +107,6 @@ django-filter==22.1
 django-grappelli==3.0.3
 django-image-cropping==1.7
 django-import-export==2.9.0
-django-ini-settings @ file:///home/harmless/Documents/django_ini_settings-0.1.0
 django-js-asset==2.0.0
 django-model-utils==4.2.0
 django-mptt==0.14.0
